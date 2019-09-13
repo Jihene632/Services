@@ -1,0 +1,112 @@
+<div class="container col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h3>Ajouter un personnel </h3>
+            </div>
+            <div class="card-body">
+               <form  [formGroup]="addP" class="needs-validation" novalidate>
+                  
+                   <div class="form-group">
+                       <label  >Nom</label>
+                       <input type="text" class="form-control" formControlName="nom"  placeholder="nom du personnel" [ngClass]="{'is-invalid':addP.get('nom').touched && addP.get('nom').invalid}" required >
+                       <div class="invalid-feedback">
+                        <div>Le Nom est obligatoire</div>
+                      </div>
+          
+                   </div>
+                   <div class="form-group">
+                        <label >Prénom</label>
+                        <input type="text" class="form-control" formControlName="prenom" placeholder="Votre prénom" [ngClass]="{'is-invalid':addP.get('prenom').touched && addP.get('prenom').invalid}" required>
+                        <div class="invalid-feedback">
+                            <div>Le prénom est obligatoire</div>
+                          </div>
+                    </div>
+                    <div class="form-group">
+                            <label >Date d'embauche</label>
+                            <input type="date" data-date-inline-picker="true"  class="form-control" formControlName="date_embauche" [ngClass]="{'is-invalid':addP.get('date_embauche').touched && addP.get('date_embauche').invalid}" required>
+                            <div class="invalid-feedback">
+                                <div>La date d'embauche est obligatoire</div>
+                              </div>
+                        </div>
+                    <div class="form-group">
+                        <label >Date de naissance</label>
+                        <input type="date" data-date-inline-picker="true"  class="form-control" formControlName="date_naissance" [ngClass]="{'is-invalid':addP.get('date_naissance').touched && addP.get('date_naissance').invalid}" required>
+                        <div class="invalid-feedback">
+                            <div>La date de naissance est obligatoire</div>
+                          </div>
+                    </div>
+                    <div class="form-group">
+                            <label >CIN</label>
+                            <input type="text"  class="form-control" formControlName="cin" placeholder="Votre CIN" [ngClass]="{'is-invalid':addP.get('cin').touched && addP.get('cin').invalid}" required>
+                            <div *ngIf="addP.get('cin').touched && addP.get('cin').invalid"  class="invalid-feedback">
+                                    <div *ngIf="addP.get('cin').errors.required">CIN est obligatoire</div>
+                                    <div *ngIf="addP.get('cin').errors.maxlength">CIN doit contenir 8 nombres</div>
+                                    <div *ngIf="addP.get('cin').errors.minlength">CIN doit contenir 8 nombres</div>
+                                    <div *ngIf="addP.get('cin').errors.pattern">CIN doit contenir que des nombres</div>
+                      </div></div>
+                    <div class="form-group">
+                        <label>Type contrat</label>
+                            <select class='form-control'   formControlName="type_contrat"  [ngClass]="{'is-invalid':addP.get('type_contrat').touched && addP.get('type_contrat').invalid}" required>
+                                    <option value="" disabled selected>Selectionner le type de contrat</option> 
+                                   <option value='CDI'>CDI</option>
+                                    <option value='CDD'>CDD</option>
+                                    <option value='CIVP'>CIVP</option>
+                                   
+                                  </select>
+                                  <div class="invalid-feedback">
+                                        <div>Le type de contrat est obligatoire</div>
+                                      </div>
+                                 </div>
+                                 <div class="form-group">
+                                        <label >Telephone 1</label>
+                                        <input type="text" class="form-control" formControlName="tel1" placeholder="Votre Telephone 1 " [ngClass]="{'is-invalid':addP.get('tel1').touched && addP.get('tel1').invalid}" required>
+                                        <div class="invalid-feedback">
+                                            <div>Le téléphone 1 est obligatoire</div>
+                                          </div>
+                                    </div>
+                                    <div class="form-group">
+                                            <label >Telephone 2</label>
+                                            <input type="text" class="form-control" formControlName="tel2" placeholder="Votre Telephone 2 " [ngClass]="{'is-invalid':addP.get('tel2').touched && addP.get('tel2').invalid}" required>
+                                            <div class="invalid-feedback">
+                                                <div>Le téléphone 2 est obligatoire</div>
+                                              </div>
+                                        </div>
+                                        <div class="form-group">
+                                                <label >Adresse</label>
+                                                <input type="text" class="form-control" formControlName="adresse" placeholder="Votre Adresse " [ngClass]="{'is-invalid':addP.get('adresse').touched && addP.get('adresse').invalid}" required>
+                                                <div class="invalid-feedback">
+                                                    <div>L'adresse est obligatoire</div>
+                                                  </div>
+                                            </div>
+                                            <div class="form-group">
+                                                    <label >Matricule</label>
+                                                    <input type="text" class="form-control" formControlName="matricule" placeholder="Votre matricule " [ngClass]="{'is-invalid':addP.get('matricule').touched && addP.get('matricule').invalid}" required>
+                                                    <div class="invalid-feedback">
+                                                        <div>La matricule est obligatoire</div>
+                                                      </div>
+                                                </div>
+                        
+                    
+                    <div class="form-group">
+                            <label>Poste occupé</label>
+                                <select class='form-control' formControlName="poste_occupe"  [ngClass]="{'is-invalid':addP.get('poste_occupe').touched && addP.get('poste_occupe').invalid}" required>
+                                        <option value="" disabled selected>Selectionner votre poste</option> 
+                                       <option value='Ingenieur'>Ingenieur</option>
+                                        <option value='Developpeur'>Developpeur</option>
+                                        <option value='Architecte'>Architecte</option>
+                                       
+                                      </select>
+                                      <div class="invalid-feedback">
+                                            <div>Le poste est obligatoire</div>
+                                          </div>
+                        </div>
+                    
+                    <div class="form-group">
+                     <button (click)="ajoutPerso()" class=" btn btn-info" [disabled]="!addP.valid" >Ajout</button>  
+                    </div>
+               </form>
+               
+            </div>
+        </div>
+    </div>
+    

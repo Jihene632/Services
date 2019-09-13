@@ -1,0 +1,37 @@
+<div class="container col-md-6">
+    <div class="card">
+        <div class="card-header">
+            <h3>Ajouter un Congés </h3>
+        </div>
+        <div class="card-body">
+           <form  [formGroup]="addC" class="needs-validation" novalidate>
+              
+            <div class="form-group">
+                <label >Durée</label><br/>
+                <label >De:</label>
+                <input type="date" data-date-inline-picker="true"  class="form-control" formControlName="dureeD" [ngClass]="{'is-invalid':addC.get('dureeD').touched && addC.get('dureeD').invalid}" required>
+                <div class="invalid-feedback">
+                    <div>La date de début est obligatoire</div>
+                  </div>
+                  <label >à:</label>
+                  <input type="date" data-date-inline-picker="true"  class="form-control" formControlName="dureeF" [ngClass]="{'is-invalid':addC.get('dureeF').touched && addC.get('dureeF').invalid}" required>
+                  <div class="invalid-feedback">
+                      <div>La date de fin est obligatoire</div>
+                    </div>
+            </div>
+               <div class="form-group">
+                    <label >Raisons</label>
+                    <input type="text" class="form-control" formControlName="raisons" placeholder="Votre raisons" [ngClass]="{'is-invalid':addC.get('raisons').touched && addC.get('raisons').invalid}" required>
+                    <div class="invalid-feedback">
+                        <div>Le prénom est obligatoire</div>
+                      </div>
+                </div>
+                <div class="form-group">
+                  <button (click)="ajoutConges()" class=" btn btn-info" [disabled]="!addC.valid" >Ajout</button>  
+                 </div>
+           </form>
+           
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,72 @@
+
+        
+<div class="container">
+        
+    
+    <nav class="navbar navbar-light ">
+        <a class="navbar-brand" href="#">
+         
+        </a>
+      </nav>
+             
+              <div class="row">
+                
+                <input type="text" class ="form-control" style="margin-left: 12px;width: 50%" placeholder="Rechercher" (input)="filter($event.target.value)">
+              </div>
+              <br/>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item" aria-current="page"><a href="ajoutuser"><i class="fas fa-plus"></i>&nbsp;Ajouter un nouvel utilisateur</a></li>
+                </ol>
+              </nav>
+              <br />
+       
+    <div class="card" style="background-color:#23989345">
+            
+        <div class="card-header">
+            <h3 style="font-size: 30px">Utilisateurs</h3>
+        </div>
+        <div class="card-body">
+           
+            <table class="table table-hover">
+                <thead>
+                   <tr class="text-center">
+                       <th>ID</th>
+                       <th>Nom</th>
+                       <th>Prénom</th>
+                       <th>Date de naissance</th>
+                       <th>Rôle</th>
+                       <th>login</th>
+                       <th>password</th>
+                       <th>gender</th>
+                       <th>Actions</th>
+                   </tr>
+                </thead>
+                  <tbody>
+                   <tr *ngFor="let user of users ">
+                      <td>{{user.idUser}}</td>
+                      <td>{{user.nom}}</td>
+                      <td>{{user.prenom}}</td>
+                      <td>{{user.date_naissance}}</td>
+                      <td>{{user.role}}</td>
+                      <td>{{user.login}}</td>
+                      <td>{{user.password}}</td>
+                      <td>{{user.gender}}</td>
+                      <td>
+                          <button class="btn btn-warning" (click)="edit(user)"><i class="fas fa-pen"></i>Modifier</button>
+                          <button class="btn btn-danger" style="margin-left:10px;"(click)="remove(user.idUser)"><i class="fas fa-trash"></i>Supprimer </button>
+                      </td>
+                      </tr>
+                  </tbody>
+
+            </table>
+        </div>
+    </div>
+  <div class="alert alert-danger" role="alert" style="margin-right: 70px" *ngIf="errorMessage">
+        <h4>{{errorMessage}}</h4> 
+</div>
+      <br />
+      <div class="alert alert-danger" role="alert" style="margin-right: 70px" *ngIf="successMessage">
+          <h4>{{successMessage}}</h4> 
+  </div>
+</div>

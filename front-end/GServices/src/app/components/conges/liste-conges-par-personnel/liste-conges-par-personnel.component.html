@@ -1,0 +1,63 @@
+
+        
+<div class="container">
+        
+
+    <nav class="navbar navbar-light ">
+        <a class="navbar-brand" href="#">
+         
+        </a>
+      </nav>
+             
+     <h3 style="color:crimson;font-style: italic;">{{perso.nom}}nbsp;{{perso.prenom}},vous avez comme congés:</h3>    
+    
+      
+    <div class="card" style="background-color:#23989345">
+            
+        <div class="card-header">
+            <h3 style="font-size: 30px">Liste des congés</h3>
+        </div>
+        <div class="card-body">
+          
+            <table class="table table-hover">
+                <thead>
+                   <tr class="text-center">
+                       <th>ID</th>
+                       <th>Date de début</th>
+                       <th>Date de fin</th>
+                       <th>Raisons</th>
+                       <th>Actions</th>
+                       
+                      
+                   </tr>
+                </thead>
+                  <tbody>
+                   <tr *ngFor="let conges of listeConges ">
+                      <td>{{conges?.idConges}}</td>
+                      <td>{{conges?.dureeD}}</td>
+                      <td>{{conges?.dureeF}}</td>
+                      <td>{{conges?.raisons}}</td>
+                      
+                      
+
+                      
+                      <td>
+                           
+                          <button class="btn btn-warning" (click)="edit(conges)"><i class="fas fa-pen"></i>Modifier</button>
+                          <button class="btn btn-danger" style="margin-left:10px;"(click)="removeC(conges)"><i class="fas fa-trash"></i>Supprimer </button>
+                      </td>
+                      </tr>
+                  </tbody>
+
+            </table>
+        </div>
+    </div>
+  <div class="alert alert-danger" role="alert" style="margin-right: 70px" *ngIf="errorMessage">
+        <h4>{{errorMessage}}</h4> 
+</div>
+      <br />
+      <div class="alert alert-danger" role="alert" style="margin-right: 70px" *ngIf="successMessage">
+          <h4>{{successMessage}}</h4> 
+  </div>
+</div>
+

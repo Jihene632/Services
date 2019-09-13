@@ -1,0 +1,89 @@
+<div class="container col-md-6">
+    <div class="card">
+        <div class="card-header">
+            <h3>Ajouter un personnel </h3>
+        </div>
+        <div class="card-body">
+           <form  [formGroup]="editP">
+              
+            <div class="form-group" >
+                <label >Nom</label>
+                <input type="text" class="form-control" [(ngModel)]="p.nom" formControlName="nom" required > 
+            
+             </div>
+               <div class="form-group">
+                    <label >Prénom</label>
+                    <input type="text" class="form-control"  formControlName="prenom"  [(ngModel)]="p.prenom"  placeholder="Votre prénom"  required>
+                    
+                </div>
+                <div class="form-group">
+                        <label >Date d'embauche</label>
+                        <input type="date" data-date-inline-picker="true"  class="form-control" [(ngModel)]="p.date_embauche" formControlName="date_embauche" required>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label >Date de naissance</label>
+                        <input type="date" data-date-inline-picker="true"  class="form-control"  [(ngModel)]="p.date_naissance" formControlName="date_naissance" required>
+                        
+                    </div>
+                    
+                        <div class="form-group">
+                        <label >CIN</label>
+                        <input type="text"  class="form-control" formControlName="cin" [(ngModel)]="p.cin" placeholder="Votre CIN"  required>
+                        
+                 </div>
+                <div class="form-group">
+                    <label>Type contrat</label>
+                        <select class='form-control'   formControlName="type_contrat" [(ngModel)]="p.type_contrat"    required  >
+                                <option value="" disabled selected>Selectionner le type de contrat</option> 
+                               <option value='CDI'>CDI</option>
+                                <option value='CDD'>CDD</option>
+                                <option value='CIVP'>CIVP</option>
+                               
+                              </select>
+                              
+                             </div>
+                             <div class="form-group">
+                                    <label >Telephone 1</label>
+                                    <input type="text" class="form-control" formControlName="tel1" [(ngModel)]="p.tel1" placeholder="Votre Telephone 1 "  required>
+                             </div>
+                                <div class="form-group">
+                                        <label >Telephone 2</label>
+                                        <input type="text" class="form-control" formControlName="tel2" [(ngModel)]="p.tel2" placeholder="Votre Telephone 2 "  required>
+                                       
+                                    </div>
+                                    <div class="form-group">
+                                            <label >Adresse</label>
+                                            <input type="text" class="form-control" formControlName="adresse" [(ngModel)]="p.adresse" placeholder="Votre Adresse "  required>
+                                            
+                                        </div>
+                                        <div class="form-group">
+                                                <label >Matricule</label>
+                                                <input type="text" class="form-control" formControlName="matricule" [(ngModel)]="p.matricule" placeholder="Votre matricule "  required>
+                                              
+                                            </div>
+                    
+                
+                <div class="form-group">
+                        <label>Poste occupé</label>
+                            <select class='form-control' formControlName="poste_occupe"  [(ngModel)]="p.poste_occupe"required>
+                                    <option value="" disabled selected>Selectionner votre poste</option> 
+                                   <option value='Ingenieur'>Ingenieur</option>
+                                    <option value='Developpeur'>Developpeur</option>
+                                    <option value='Architecte'>Architecte</option>
+                                   
+                                  </select>
+                                  <div class="invalid-feedback">
+                                        <div>Le poste est obligatoire</div>
+                                      </div>
+                    </div>
+                
+                <div class="form-group">
+                 <button (click)="ModifPerso()" class=" btn btn-info"  >Modifier</button>  
+                </div>
+           </form>
+           
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,71 @@
+<div class="container col-md-6">
+        <div class="card">
+            <div class="card-header">
+                
+                <h3>Modifier un utilisateur </h3>
+            </div>
+            <div class="card-body">
+               <form  [formGroup]="edit">
+                  
+                   <div class="form-group" >
+                       <label >Nom</label>
+                       <input type="text" class="form-control" [(ngModel)]="nomP" formControlName="nom"required value="{{user.nom}}"> 
+                   
+                    </div>
+                   <div class="form-group">
+                        <label >Prénom</label>
+                        <input type="text" class="form-control"  [(ngModel)]="prenom"formControlName="prenom"   required value="{{user.prenom}}">
+                    </div>
+                    <div class="form-group">
+                        <label >Date de naissance</label>
+                        <input type="date" data-date-inline-picker="true" [(ngModel)]="date_naissance" formControlName="date_naissance"  required value="{{user.date_naissance}}">
+                    </div>
+            
+                    <div class="form-group">
+                        <label>Rôle</label>
+                            <select class='form-control' formControlName="role"  [(ngModel)]="role"  required value="{{user.role}}">
+                                    <option value='administrateur'>Administrateur</option>
+                                    <option value='employée'>Employée</option>
+                                   
+                                  </select>
+                   
+                </div>
+                <div class="form-group">
+                    <label >login</label>
+                    <input type="text" class="form-control" [(ngModel)]="login" formControlName="login" required value="{{user.login}}">
+                </div>
+                
+                
+                <div class="form-group">
+                    <label >password</label>
+                    <input type="text" class="form-control" [(ngModel)]="password" formControlName="password"  required value="{{user.password}}">
+                </div>
+
+          
+                <div class="form-group">
+                        <label>Gender</label>
+                            <select class='form-control' formControlName="gender"  [(ngModel)]="gender" required value="{{user.gender}}">
+                                    <option value='Male'>Male</option>
+                                    <option value='Female'>Female</option>
+                                   
+                                  </select>
+                </div>
+                <div class="form-group">
+                    <label >Choisir une photo</label>
+                    <div   *ngIf="user.photo!=null">
+                        <img style="width:50px ;height:50px" src="http://localhost:8080/users/photo/{{user.idUser}}" ></div> 
+                    </div>
+                    <input type="file" name="photo" accept="image/*" (change)="selectFile($event)" [(ngModel)]="photo" formControlName="photo"  caption value="{{user.photo}}"> 
+                    
+              
+           </form>
+               
+            <button (click)="Modifier()" class=" btn btn-info" >Modifier</button>  
+            
+            </div>
+            
+        </div>
+    </div>
+
+
+

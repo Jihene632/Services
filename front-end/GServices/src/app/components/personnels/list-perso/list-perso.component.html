@@ -1,0 +1,82 @@
+<div class="container">
+        
+    
+    <nav class="navbar navbar-light ">
+        <a class="navbar-brand" href="#">
+         
+        </a>
+      </nav>
+             
+              <div class="row"style="margin-left: -45px;">
+            
+            
+            
+                
+                <input type="text" class ="form-control" style="margin-left: 12px;width: 50%" placeholder="Rechercher" (input)="filter($event.target.value)">
+              </div>
+              <br/>
+              <nav aria-label="breadcrumb" style="margin-left: -35px;">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item" aria-current="page"><a href="ajoutPersonnel"><i class="fas fa-plus"></i>&nbsp;Ajouter un nouveau personnel</a></li>
+                </ol>
+              </nav>
+              <br />
+       
+    <div class="card" style="background-color:#23989345;width:1250px;margin-left: -35px;">
+            
+        <div class="card-header">
+            <h3 style="font-size: 30px">Personnels</h3>
+        </div>
+        <div class="card-body">
+           
+            <table class="table table-hover">
+                <thead>
+                   <tr class="text-center">
+                       <th>ID</th>
+                       <th>Nom </th>
+                       <th>Prénom</th>
+                       <th>Date d'embauche</th>
+                       <th>Date de naissance</th>
+                       <th>CIN</th>
+                       <th>Type de contrat</th>
+                       <th>Telephone 1</th>
+                       <th>Telephone 2</th>
+                       <th>Adresse</th>
+                       <th>Matricule </th>
+                       <th>Post occupé</th>
+                       <th style="width: 1000px;">Actions</th>
+                   </tr>
+                </thead>
+                  <tbody>
+                   <tr *ngFor="let perso of personnels ">
+                      <td>{{perso.idPersonnel}}</td>
+                      <td>{{perso.nom}}</td>
+                      <td>{{perso.prenom}}</td>
+                      <td>{{perso.date_embauche}}</td>
+                      <td>{{perso.date_naissance}}</td>
+                      <td>{{perso.cin}}</td>
+                      <td>{{perso.type_contrat}}</td>     
+                      <td>{{perso.tel1}}</td>
+                      <td>{{perso.tel2}}</td>
+                      <td>{{perso.adresse}}</td>
+                      <td>{{perso.matricule}}</td>
+                      <td>{{perso.poste_occupe}}</td>
+                      <td>
+                          <button class="btn btn-secondary" (click)="addconges(perso)"><i class="fas fa-plus"></i>&nbsp;congés </button>
+                          <button class="btn btn-warning" (click)="edit(perso)" style="margin-inline-start:8px;"><i class="fas fa-pen" ></i>&nbsp;Modifier</button>
+                          <button class="btn btn-danger" style=" margin-left: 8px;"(click)="removeP(perso)"><i class="fas fa-trash"></i>&nbsp;Supprimer </button>
+                      </td>
+                      </tr>
+                  </tbody>
+
+            </table>
+        </div>
+    </div>
+  <div class="alert alert-danger" role="alert" style="margin-right: 70px" *ngIf="errorMessage">
+        <h4>{{errorMessage}}</h4> 
+</div>
+      <br />
+      <div class="alert alert-danger" role="alert" style="margin-right: 70px" *ngIf="successMessage">
+          <h4>{{successMessage}}</h4> 
+  </div>
+</div>
