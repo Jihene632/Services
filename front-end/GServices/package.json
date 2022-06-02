@@ -14,7 +14,7 @@
     "@angular/animations": "^8.2.0-next.2",
     "@angular/common": ">=2.0.0",
     "@angular/compiler": "^8.2.0-next.2",
-    "@angular/core": ">=2.0.0",
+    "@angular/core": ">=11.0.5",
     "@angular/forms": "^8.2.0-next.2",
     "@angular/http": ">=2.0.0",
     "@angular/platform-browser": ">=2.0.0",
